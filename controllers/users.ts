@@ -35,6 +35,7 @@ Users.post("/", async (req, res) => {
   }
 
   // passed params: add to db
+  let insertId;
   try {
       const insertId = await users.insertOne({
       username: req.parsedBody.user,
@@ -45,7 +46,9 @@ Users.post("/", async (req, res) => {
     res.send(500);
   }
 
-  res.send(201);
+  res.status = 201;
+  console.log(insertId);
+  res.send(insertId);
 });
 
 // GET /users/<id> get user by id
