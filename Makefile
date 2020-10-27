@@ -1,12 +1,14 @@
 default: run
 
+DENO_ARGS=--allow-net --allow-read --allow-env --allow-write --allow-plugin --unstable
+
 run:
 	docker-compose up -d
-	deno run --allow-net --allow-read --allow-env --allow-write --allow-plugin --unstable app.ts
+	deno run $(DENO_ARGS) app.ts
 
 test:
 	docker-compose up --force-recreate --renew-anon-volumes -d
-	deno test --allow-net --allow-read --allow-env --allow-plugin --unstable tests/integration/*
+	deno test $(DENO_ARGS) tests/integration/*
 
 lint:
 	deno lint --unstable
