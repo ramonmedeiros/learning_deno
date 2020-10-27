@@ -1,10 +1,9 @@
 import { MongoClient } from "https://deno.land/x/mongo@v0.13.0/mod.ts";
 
-const databaseURL = 'mongodb://localhost:27017';
+const databaseURL = "mongodb://localhost:27017";
 const defaultDatabase = "test";
 
-function connect(){
-
+function connect() {
   // try to connect to database
   const client = new MongoClient();
   try {

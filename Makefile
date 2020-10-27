@@ -11,4 +11,4 @@ test:
 	deno test $(DENO_ARGS) tests/integration/*
 
 lint:
-	deno lint --unstable
+	deno fmt

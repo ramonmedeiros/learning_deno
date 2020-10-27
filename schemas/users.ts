@@ -1,4 +1,3 @@
-
 // Defining schema interface
 interface UserSchema {
   _id: { $oid: string };

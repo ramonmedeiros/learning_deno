@@ -23,13 +23,15 @@ Users.get("/", async (req, res) => {
   }
 });
 
-
 // POST /users/ add a user
 Users.post("/", async (req, res) => {
   const users = setupDB();
 
   // verify if user and pass are passed
-  if ((await req.parsedBody.hasOwnProperty("user") == false) || (await req.parsedBody.hasOwnProperty("password") == false)) {
+  if (
+    (await req.parsedBody.hasOwnProperty("user") == false) ||
+    (await req.parsedBody.hasOwnProperty("password") == false)
+  ) {
     res.setStatus(400);
     res.send("Missing parameter");
   }
@@ -37,7 +39,7 @@ Users.post("/", async (req, res) => {
   // passed params: add to db
   let insertId;
   try {
-      const insertId = await users.insertOne({
+    const insertId = await users.insertOne({
       username: req.parsedBody.user,
       password: req.parsedBody.password,
     });
@@ -52,7 +54,7 @@ Users.post("/", async (req, res) => {
 });
 
 // GET /users/<id> get user by id
-Users.get('/:id', async (req, res) => {
+Users.get("/:id", async (req, res) => {
   const users = setupDB();
   const user1 = await users.findOne({ _id: req.params.id });
   res.send(user1);

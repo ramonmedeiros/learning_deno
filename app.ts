@@ -1,13 +1,12 @@
-import { opine, json } from "https://deno.land/x/opine@0.24.0/mod.ts";
+import { json, opine } from "https://deno.land/x/opine@0.24.0/mod.ts";
 import Users from "./controllers/users.ts";
 
 const app = opine();
 const port = 3000;
 
-export {start_app};
+export { start_app };
 
 function start_app(port: number) {
-
   // parsedBody will return json
   app.use(json());
 
@@ -19,10 +18,9 @@ function start_app(port: number) {
     res.send("Hello World");
   });
 
-  console.log(`Running on http://localhost:${port}`)
+  console.log(`Running on http://localhost:${port}`);
   return app.listen(port);
 }
-
 
 // check if was executed
 if (import.meta.main) {
