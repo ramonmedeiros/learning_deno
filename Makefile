@@ -8,7 +8,7 @@ run:
 
 test:
 	docker-compose up --force-recreate --renew-anon-volumes -d
-	deno test $(DENO_ARGS) tests/integration/*
+	deno test $(DENO_ARGS) --coverage --failfast tests/integration/*
 
 lint:
 	deno fmt
