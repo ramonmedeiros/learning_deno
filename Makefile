@@ -2,13 +2,13 @@ default: run
 
 DENO_ARGS=--allow-net --allow-read --allow-env --allow-write --allow-plugin --unstable
 
-run:
+run-opine:
 	docker-compose up -d
-	deno run $(DENO_ARGS) app.ts
+	deno run $(DENO_ARGS) opine/app.ts
 
-test:
+test-opine:
 	docker-compose up --force-recreate --renew-anon-volumes -d
-	deno test $(DENO_ARGS) --coverage --failfast tests/integration/*
+	deno test $(DENO_ARGS) --coverage --failfast tests/opine/integration/*
 
 lint:
 	deno fmt

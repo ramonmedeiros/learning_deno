@@ -1,6 +1,6 @@
 import { Router } from "https://deno.land/x/opine@0.24.0/mod.ts";
-import connect from "./../db.ts";
-import type { UserSchema } from "./../schemas/users.ts";
+import connect from "./../../schemas/db.ts";
+import type { UserSchema } from "./../../schemas/users.ts";
 
 const Users = Router();
 
